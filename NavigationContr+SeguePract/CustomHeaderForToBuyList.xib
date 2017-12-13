@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="zGY-Sh-7DJ" customClass="CustomHeaderForToBuyList">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1bg-iA-Di2">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6A-tx-maO">
+                            <rect key="frame" x="20" y="4" width="48" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="FPq-3l-8Y5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad5-jZ-Vpw">
+                            <rect key="frame" x="325" y="3" width="42" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="x7E-14-To5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2C-jB-0V2">
+                            <rect key="frame" x="271" y="3" width="40" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="Tz0-N9-cIj"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <constraints>
+                        <constraint firstItem="w6A-tx-maO" firstAttribute="top" secondItem="1bg-iA-Di2" secondAttribute="top" constant="4" id="Bwp-Lo-oGP"/>
+                        <constraint firstAttribute="trailing" secondItem="ad5-jZ-Vpw" secondAttribute="trailing" constant="8" id="Dq0-KW-EvU"/>
+                        <constraint firstAttribute="bottom" secondItem="w6A-tx-maO" secondAttribute="bottom" constant="4" id="GH7-OV-XKf"/>
+                        <constraint firstItem="y2C-jB-0V2" firstAttribute="top" secondItem="1bg-iA-Di2" secondAttribute="top" constant="3" id="PeY-jK-HYP"/>
+                        <constraint firstItem="w6A-tx-maO" firstAttribute="leading" secondItem="1bg-iA-Di2" secondAttribute="leading" constant="20" id="UYe-b8-NvY"/>
+                        <constraint firstItem="ad5-jZ-Vpw" firstAttribute="top" secondItem="1bg-iA-Di2" secondAttribute="top" constant="3" id="W7Y-M0-7fC"/>
+                        <constraint firstAttribute="bottom" secondItem="y2C-jB-0V2" secondAttribute="bottom" constant="3" id="ZOx-UU-ZoV"/>
+                        <constraint firstItem="y2C-jB-0V2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="w6A-tx-maO" secondAttribute="trailing" constant="15" id="gEd-Sa-O2x"/>
+                        <constraint firstAttribute="bottom" secondItem="ad5-jZ-Vpw" secondAttribute="bottom" constant="3" id="hXg-Ye-55q"/>
+                        <constraint firstItem="ad5-jZ-Vpw" firstAttribute="leading" secondItem="y2C-jB-0V2" secondAttribute="trailing" constant="14" id="ik9-t2-7Ix"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="1bg-iA-Di2" secondAttribute="trailing" id="ESO-g8-irk"/>
+                <constraint firstItem="1bg-iA-Di2" firstAttribute="top" secondItem="zGY-Sh-7DJ" secondAttribute="top" id="W6m-1r-erv"/>
+                <constraint firstAttribute="bottom" secondItem="1bg-iA-Di2" secondAttribute="bottom" id="rtJ-Qj-55H"/>
+                <constraint firstItem="1bg-iA-Di2" firstAttribute="leading" secondItem="zGY-Sh-7DJ" secondAttribute="leading" id="tHs-ub-m91"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-181" y="-276"/>
+        </view>
+    </objects>
+</document>
