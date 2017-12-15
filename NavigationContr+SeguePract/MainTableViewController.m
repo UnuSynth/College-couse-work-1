@@ -16,11 +16,13 @@ static NSString* const cellID=@"tobuy-cell-reuse-identifier";
 static NSString* const headerCellID=@"header-cell-reuse-identifier";
 static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
 
-@interface MainTableViewController () <UITableViewDataSource, UITableViewDelegate, CartListTableViewControllerDelegate, UINavigationControllerDelegate, UINavigationBarDelegate>
+@interface MainTableViewController () <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *goToCartButton;
+@property(nonatomic, strong) IBOutlet UIBarButtonItem* goToCartButton;
 @property(nonatomic, strong) ToBuyList* productList;
+@property(nonatomic, strong) NSMutableArray<ToBuyItem*>* filteredProductList;
 @property(nonatomic, strong) NSArray<UITableViewRowAction*>* rowActions;
+@property(nonatomic, strong) UISearchController* searchController;
 
 @end
 
@@ -29,6 +31,15 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.filteredProductList=[[NSMutableArray alloc]init];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.searchBar.delegate = self;
+    self.searchController.obscuresBackgroundDuringPresentation = NO;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    
+    self.tableView.tableHeaderView=self.searchController.searchBar;
     
     UINib* headerNib=[UINib nibWithNibName:[CustomHeaderForToBuyList nibName]
                                     bundle:[NSBundle mainBundle]];
@@ -69,10 +80,15 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     if(self.productList.cartItemList.count==0)
     {
         self.goToCartButton.enabled=NO;
     }
+    
+    CGPoint offset=CGPointMake(0, self.searchController.searchBar.frame.size.height);
+    self.tableView.contentOffset=offset;
 }
 
 - (void)didReceiveMemoryWarning
@@ -162,7 +178,6 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
     {
         CartListTableViewController* destinationCartList=segue.destinationViewController;
         [destinationCartList setList: self.productList];
-        destinationCartList.delegate=self;
     }
 }
 
@@ -208,9 +223,9 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
                        animated:YES completion:nil];
 }
 
--(IBAction)searchButtonTap:(id)sender
+-(void)searchBarCancelButtonClicked:(UISearchBar*)searchBar
 {
-    
+    self.searchController.active=NO;
 }
 
 #pragma mark - Table view data source
@@ -223,7 +238,15 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return self.productList.toBuyItemList.count;
+    if(self.searchController.isActive && self.searchController.searchBar.text.length>0)
+    {
+        return self.filteredProductList.count;
+    }
+    
+    else
+    {
+        return self.productList.toBuyItemList.count;
+    }
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView
@@ -234,9 +257,19 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
     CustomCellForToBuyTable* cell=[tableView dequeueReusableCellWithIdentifier:cellID
                                                                   forIndexPath:indexPath];
     
-    item=self.productList.toBuyItemList[indexPath.row];
+    if(self.searchController.isActive && self.searchController.searchBar.text.length>0)
+    {
+        item=self.filteredProductList[indexPath.row];
+        
+        [cell setInfoAboutItem:item];
+    }
     
-    [cell setInfoAboutItem:item];
+    else
+    {
+        item=self.productList.toBuyItemList[indexPath.row];
+        
+        [cell setInfoAboutItem:item];
+    }
     
     return cell;
 }
@@ -266,6 +299,28 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self buyProduct:indexPath];
+}
+
+-(void)updateSearchResultsForSearchController:(UISearchController*)searchController
+{
+    NSString* searchQuery=self.searchController.searchBar.text;
+    
+    if(searchQuery.length>0)
+    {
+        NSPredicate* filterPredicate=[NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@", @"name", searchQuery];
+        
+        self.filteredProductList=[NSMutableArray arrayWithArray:[self.productList.toBuyItemList filteredArrayUsingPredicate:filterPredicate]];
+    }
+    
+    else
+    {
+        if(self.filteredProductList.count>0)
+        {
+            [self.filteredProductList removeAllObjects];
+        }
+    }
+    
+    [self.tableView reloadData];
 }
 
 @end
