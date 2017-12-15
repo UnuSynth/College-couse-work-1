@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -89,23 +88,16 @@
                                 <action selector="addButtonTap:" destination="HmV-zV-VT5" id="jT1-1a-RxA"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem enabled="NO" title="Cart" style="plain" id="Pdx-mq-Xnd">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LTt-2a-BSu">
-                                    <rect key="frame" x="311" y="7" width="83" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Cart →"/>
-                                    <connections>
-                                        <segue destination="SYq-iy-F7Y" kind="show" identifier="cart-list-segue-identifier" id="qw1-2q-gdd"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem style="plain" systemItem="search" id="V1h-Tk-L3g">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Cart" style="plain" id="Pdx-mq-Xnd">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LTt-2a-BSu">
+                                <rect key="frame" x="311" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cart →"/>
                                 <connections>
-                                    <action selector="searchButtonTap:" destination="HmV-zV-VT5" id="V22-Qg-wpG"/>
+                                    <segue destination="SYq-iy-F7Y" kind="show" identifier="cart-list-segue-identifier" id="qw1-2q-gdd"/>
                                 </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="goToCartButton" destination="Pdx-mq-Xnd" id="5rU-Oz-cRS"/>
