@@ -37,7 +37,6 @@ static NSString* const kForSession=@"id-key-for-session";
 {
     [self->_dataPriceObjectsArray addObject:item];
     [self->_sessionArray addObject:session];
-    
     [self saveData];
 }
 

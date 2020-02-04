@@ -33,7 +33,7 @@ static NSString* const cartFooterReuseID=@"cart-footer-reuse-identifier";
  forHeaderFooterViewReuseIdentifier:[CustomFooterForCartList footerReuseID]];
     
     UITableViewRowAction* deleteAction=[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
-                                                                          title:@"Delete"
+                                                                          title:@"Удалить"
                                                                         handler:^(UITableViewRowAction* action, NSIndexPath* indexPath)
                                         {
                                             [self.cartList removeCartItemAtIndex:indexPath.row];
@@ -64,44 +64,77 @@ static NSString* const cartFooterReuseID=@"cart-footer-reuse-identifier";
 {
     if(self.cartList.cartItemList.count>0)
     {
-        UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"Cart"
-                                                                     message:@"You are going to buy products. Are you sure?"
+        UIAlertController* alert=[UIAlertController alertControllerWithTitle:nil
+                                                                     message:@"Укажите, сколько у вас наличными:"
                                                               preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction* okAction=[UIAlertAction actionWithTitle:@"Yes"
+        [alert addTextFieldWithConfigurationHandler:^(UITextField* textField)
+         {
+             textField.placeholder=@"сюда";
+         }];
+        
+        UIAlertAction* okAction=[UIAlertAction actionWithTitle:@"Подтвердить"
                                                          style:UIAlertActionStyleDefault
                                                        handler:^(UIAlertAction* action)
                                  {
-                                     DataPriceSave* item=[[DataPriceSave alloc]init];
+                                     NSString* stringCash=[[alert textFields][0] text];
                                      
-                                     item.total=self.totalPrice;
-                                     item.date=[NSDate date];
-                                     [self.saveArr addSaveItem:item
-                                                   withSession:self.cartList.cartItemList];
+                                     float cash=stringCash.floatValue;
                                      
-                                     [self.cartList clearCartList];
+                                     if(cash>=self.totalPrice)
+                                     {
+                                         float balance=cash-self.totalPrice;
+                                         
+                                         DataPriceSave* item=[[DataPriceSave alloc]init];
+                                         
+                                         item.total=self.totalPrice;
+                                         item.date=[NSDate date];
+                                         [self.saveArr addSaveItem:item
+                                                       withSession:self.cartList.cartItemList];
+                                         
+                                         [self.cartList clearCartList];
+                                         
+                                         UIAlertController* successAlert=
+                                         [UIAlertController alertControllerWithTitle:@"Успешно!"
+                                                                             message:[NSString stringWithFormat:@"Операция прошла успешно.\nУ вас осталось %.2f сомов.", balance]
+                                                                      preferredStyle: UIAlertControllerStyleAlert];
+                                         
+                                         UIAlertAction* okAction=[UIAlertAction actionWithTitle:@"OK"
+                                                                                          style:UIAlertActionStyleDefault
+                                                                                        handler:nil];
+                                         [successAlert addAction:okAction];
+                                         
+                                         [self presentViewController:successAlert
+                                                            animated:YES
+                                                          completion:nil];
+                                         
+                                         [self.cartList clearCartList];
+                                         
+                                         [self.tableView reloadData];
+                                         
+                                         sender.enabled=NO;
+                                     }
                                      
-                                     UIAlertController* successAlert=[UIAlertController alertControllerWithTitle:@"Successful!"
-                                                                                                         message:@"Your products have been bought!"
-                                                                                                  preferredStyle:UIAlertControllerStyleAlert];
-                                     
-                                     UIAlertAction* okAction=[UIAlertAction actionWithTitle:@"OK"
-                                                                                      style:UIAlertActionStyleDefault
-                                                                                    handler:nil];
-                                     [successAlert addAction:okAction];
-                                     
-                                     [self presentViewController:successAlert
-                                                        animated:YES
-                                                      completion:nil];
-                                     
-                                     [self.cartList clearCartList];
-                                     
-                                     [self.tableView reloadData];
-                                     
-                                     sender.enabled=NO;
+                                     else
+                                     {
+                                         UIAlertController* unsuccessAlert=
+                                         [UIAlertController alertControllerWithTitle:@"Неудачно!"
+                                                                             message:[NSString stringWithFormat:@"Вам не хватает денег"]
+                                                                      preferredStyle: UIAlertControllerStyleAlert];
+                                         
+                                         UIAlertAction* okAction=[UIAlertAction actionWithTitle:@"OK"
+                                                                                          style:UIAlertActionStyleDefault
+                                                                                        handler:nil];
+                                         
+                                         [unsuccessAlert addAction:okAction];
+                                         
+                                         [self presentViewController:unsuccessAlert
+                                                            animated:YES
+                                                          completion:nil];
+                                     }
                                  }];
         
-        UIAlertAction* cancelAction=[UIAlertAction actionWithTitle:@"Cancel"
+        UIAlertAction* cancelAction=[UIAlertAction actionWithTitle:@"Отменить"
                                                              style:UIAlertActionStyleCancel
                                                            handler:nil];
         
@@ -176,7 +209,7 @@ numberOfRowsInSection:(NSInteger)section
     
     else
     {
-        [footer setText:@"Nothing to buy!"];
+        [footer setText:@"Нечего покупать. Вернитесь назад"];
     }
     
     UINib* footerNib=[UINib nibWithNibName:[CustomFooterForCartList nibName]

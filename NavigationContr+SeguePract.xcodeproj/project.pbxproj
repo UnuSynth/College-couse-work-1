@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30116A8F1FC80B8300AA4FF2 /* TestMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30116A8D1FC80B8300AA4FF2 /* TestMain.storyboard */; };
+		30116A8F1FC80B8300AA4FF2 /* MainStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30116A8D1FC80B8300AA4FF2 /* MainStory.storyboard */; };
 		3036D9291F9E28B5007F3FCC /* CustomHeaderForToBuyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3036D9281F9E28B5007F3FCC /* CustomHeaderForToBuyList.m */; };
 		3036D92B1F9E28C0007F3FCC /* CustomHeaderForToBuyList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3036D92A1F9E28C0007F3FCC /* CustomHeaderForToBuyList.xib */; };
 		3036D9301F9E3BD5007F3FCC /* CartListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3036D92F1F9E3BD5007F3FCC /* CartListTableViewController.m */; };
@@ -15,9 +15,16 @@
 		3057CEA81FAD664700528448 /* DataPriceSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057CEA71FAD664700528448 /* DataPriceSave.m */; };
 		3057CEAB1FAD6A1700528448 /* DataPriceSaveArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057CEAA1FAD6A1600528448 /* DataPriceSaveArray.m */; };
 		3057CEB61FAD828600528448 /* CustomCVCellForStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057CEB51FAD828600528448 /* CustomCVCellForStatistics.m */; };
+		3076ACBE200CFEBB0023C663 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076ACBD200CFEBB0023C663 /* Product.m */; };
+		3076ACC1200D05720023C663 /* CompareItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076ACC0200D05720023C663 /* CompareItem.m */; };
+		3076ACC4200D11090023C663 /* CompareItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076ACC3200D11090023C663 /* CompareItemList.m */; };
+		3076ACC7200D16910023C663 /* CompareList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076ACC6200D16910023C663 /* CompareList.m */; };
+		3076ACCB200DA94D0023C663 /* CompareListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076ACCA200DA94D0023C663 /* CompareListController.m */; };
+		3076ACCE200DB5B10023C663 /* CompareListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076ACCD200DB5B10023C663 /* CompareListCell.m */; };
+		3076ACD0200DD07D0023C663 /* CustomHeaderForCompareList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3076ACCF200DD07D0023C663 /* CustomHeaderForCompareList.xib */; };
+		3076ACD3200DD0C60023C663 /* CustomHeaderForCompareList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076ACD2200DD0C60023C663 /* CustomHeaderForCompareList.m */; };
 		30A80A981F9ADC69009202A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A80A971F9ADC69009202A2 /* main.m */; };
 		30A80A9B1F9ADC69009202A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A80A9A1F9ADC69009202A2 /* AppDelegate.m */; };
-		30A80AA11F9ADC69009202A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A80A9F1F9ADC69009202A2 /* Main.storyboard */; };
 		30A80AA31F9ADC69009202A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A80AA21F9ADC69009202A2 /* Assets.xcassets */; };
 		30A80AA61F9ADC69009202A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A80AA41F9ADC69009202A2 /* LaunchScreen.storyboard */; };
 		30A80AB31F9ADCE0009202A2 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A80AB21F9ADCE0009202A2 /* MainTableViewController.m */; };
@@ -33,7 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		30116A8E1FC80B8300AA4FF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TestMain.storyboard; sourceTree = "<group>"; };
+		30116A8E1FC80B8300AA4FF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStory.storyboard; sourceTree = "<group>"; };
 		3036D9271F9E28B5007F3FCC /* CustomHeaderForToBuyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHeaderForToBuyList.h; sourceTree = "<group>"; };
 		3036D9281F9E28B5007F3FCC /* CustomHeaderForToBuyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHeaderForToBuyList.m; sourceTree = "<group>"; };
 		3036D92A1F9E28C0007F3FCC /* CustomHeaderForToBuyList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomHeaderForToBuyList.xib; sourceTree = "<group>"; };
@@ -47,11 +54,25 @@
 		3057CEAA1FAD6A1600528448 /* DataPriceSaveArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPriceSaveArray.m; sourceTree = "<group>"; };
 		3057CEB41FAD828600528448 /* CustomCVCellForStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCVCellForStatistics.h; sourceTree = "<group>"; };
 		3057CEB51FAD828600528448 /* CustomCVCellForStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCVCellForStatistics.m; sourceTree = "<group>"; };
+		3076ACBC200CFEBB0023C663 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		3076ACBD200CFEBB0023C663 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		3076ACBF200D05720023C663 /* CompareItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareItem.h; sourceTree = "<group>"; };
+		3076ACC0200D05720023C663 /* CompareItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareItem.m; sourceTree = "<group>"; };
+		3076ACC2200D11090023C663 /* CompareItemList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareItemList.h; sourceTree = "<group>"; };
+		3076ACC3200D11090023C663 /* CompareItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareItemList.m; sourceTree = "<group>"; };
+		3076ACC5200D16910023C663 /* CompareList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareList.h; sourceTree = "<group>"; };
+		3076ACC6200D16910023C663 /* CompareList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareList.m; sourceTree = "<group>"; };
+		3076ACC9200DA94D0023C663 /* CompareListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareListController.h; sourceTree = "<group>"; };
+		3076ACCA200DA94D0023C663 /* CompareListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareListController.m; sourceTree = "<group>"; };
+		3076ACCC200DB5B10023C663 /* CompareListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareListCell.h; sourceTree = "<group>"; };
+		3076ACCD200DB5B10023C663 /* CompareListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareListCell.m; sourceTree = "<group>"; };
+		3076ACCF200DD07D0023C663 /* CustomHeaderForCompareList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomHeaderForCompareList.xib; sourceTree = "<group>"; };
+		3076ACD1200DD0C60023C663 /* CustomHeaderForCompareList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHeaderForCompareList.h; sourceTree = "<group>"; };
+		3076ACD2200DD0C60023C663 /* CustomHeaderForCompareList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHeaderForCompareList.m; sourceTree = "<group>"; };
 		30A80A931F9ADC69009202A2 /* NavigationContr+SeguePract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NavigationContr+SeguePract.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A80A971F9ADC69009202A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		30A80A991F9ADC69009202A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		30A80A9A1F9ADC69009202A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		30A80AA01F9ADC69009202A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30A80AA21F9ADC69009202A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30A80AA51F9ADC69009202A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30A80AA71F9ADC69009202A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,8 +111,7 @@
 		3036D9261F9E2879007F3FCC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				30A80A9F1F9ADC69009202A2 /* Main.storyboard */,
-				30116A8D1FC80B8300AA4FF2 /* TestMain.storyboard */,
+				30116A8D1FC80B8300AA4FF2 /* MainStory.storyboard */,
 				30A80AA41F9ADC69009202A2 /* LaunchScreen.storyboard */,
 				3036D9311F9EECE2007F3FCC /* Custom headers */,
 				30DFBC381FA75A2B004DE917 /* Custom footers */,
@@ -124,6 +144,9 @@
 				3036D9271F9E28B5007F3FCC /* CustomHeaderForToBuyList.h */,
 				3036D9281F9E28B5007F3FCC /* CustomHeaderForToBuyList.m */,
 				3036D92A1F9E28C0007F3FCC /* CustomHeaderForToBuyList.xib */,
+				3076ACD1200DD0C60023C663 /* CustomHeaderForCompareList.h */,
+				3076ACD2200DD0C60023C663 /* CustomHeaderForCompareList.m */,
+				3076ACCF200DD07D0023C663 /* CustomHeaderForCompareList.xib */,
 			);
 			name = "Custom headers";
 			sourceTree = "<group>";
@@ -131,10 +154,19 @@
 		3057CEAC1FAD731200528448 /* Statistic */ = {
 			isa = PBXGroup;
 			children = (
+				30D2CDD91FB95F2A006C0201 /* Simple */,
 				30D2CDE41FB99028006C0201 /* Detailed Statistic */,
-				30D2CDD91FB95F2A006C0201 /* TableView */,
 			);
 			name = Statistic;
+			sourceTree = "<group>";
+		};
+		3076ACC8200DA9050023C663 /* Compare */ = {
+			isa = PBXGroup;
+			children = (
+				3076ACC9200DA94D0023C663 /* CompareListController.h */,
+				3076ACCA200DA94D0023C663 /* CompareListController.m */,
+			);
+			name = Compare;
 			sourceTree = "<group>";
 		};
 		30A80A8A1F9ADC68009202A2 = {
@@ -182,6 +214,7 @@
 				3036D92C1F9E3B73007F3FCC /* ToBuyList */,
 				3036D92D1F9E3B7F007F3FCC /* Cart */,
 				3057CEAC1FAD731200528448 /* Statistic */,
+				3076ACC8200DA9050023C663 /* Compare */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -202,8 +235,12 @@
 				30A80AB61F9ADFEF009202A2 /* ToBuyItem.m */,
 				3057CEA61FAD664700528448 /* DataPriceSave.h */,
 				3057CEA71FAD664700528448 /* DataPriceSave.m */,
+				3076ACBC200CFEBB0023C663 /* Product.h */,
+				3076ACBD200CFEBB0023C663 /* Product.m */,
 				30A80AB81F9AE058009202A2 /* CartItem.h */,
 				30A80AB91F9AE058009202A2 /* CartItem.m */,
+				3076ACBF200D05720023C663 /* CompareItem.h */,
+				3076ACC0200D05720023C663 /* CompareItem.m */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -215,6 +252,10 @@
 				30A80ABC1F9AE3B0009202A2 /* ToBuyList.m */,
 				3057CEA91FAD6A1600528448 /* DataPriceSaveArray.h */,
 				3057CEAA1FAD6A1600528448 /* DataPriceSaveArray.m */,
+				3076ACC2200D11090023C663 /* CompareItemList.h */,
+				3076ACC3200D11090023C663 /* CompareItemList.m */,
+				3076ACC5200D16910023C663 /* CompareList.h */,
+				3076ACC6200D16910023C663 /* CompareList.m */,
 			);
 			name = Lists;
 			sourceTree = "<group>";
@@ -230,17 +271,19 @@
 				3057CEB51FAD828600528448 /* CustomCVCellForStatistics.m */,
 				30D2CDDE1FB9606A006C0201 /* CustomCellForStatistics.h */,
 				30D2CDDF1FB9606A006C0201 /* CustomCellForStatistics.m */,
+				3076ACCC200DB5B10023C663 /* CompareListCell.h */,
+				3076ACCD200DB5B10023C663 /* CompareListCell.m */,
 			);
 			name = "Custom cells";
 			sourceTree = "<group>";
 		};
-		30D2CDD91FB95F2A006C0201 /* TableView */ = {
+		30D2CDD91FB95F2A006C0201 /* Simple */ = {
 			isa = PBXGroup;
 			children = (
 				30D2CDDA1FB95F60006C0201 /* StatisticTableTableViewController.h */,
 				30D2CDDB1FB95F60006C0201 /* StatisticTableTableViewController.m */,
 			);
-			name = TableView;
+			name = Simple;
 			sourceTree = "<group>";
 		};
 		30D2CDE41FB99028006C0201 /* Detailed Statistic */ = {
@@ -323,9 +366,9 @@
 				30A80AA61F9ADC69009202A2 /* LaunchScreen.storyboard in Resources */,
 				3036D92B1F9E28C0007F3FCC /* CustomHeaderForToBuyList.xib in Resources */,
 				30A80AA31F9ADC69009202A2 /* Assets.xcassets in Resources */,
-				30A80AA11F9ADC69009202A2 /* Main.storyboard in Resources */,
+				3076ACD0200DD07D0023C663 /* CustomHeaderForCompareList.xib in Resources */,
 				30DFBC3A1FA75A51004DE917 /* CustomFooterForCartList.xib in Resources */,
-				30116A8F1FC80B8300AA4FF2 /* TestMain.storyboard in Resources */,
+				30116A8F1FC80B8300AA4FF2 /* MainStory.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,11 +382,17 @@
 				30A80AB71F9ADFEF009202A2 /* ToBuyItem.m in Sources */,
 				30A80AC31F9AF8A3009202A2 /* CustomCellForToBuyTable.m in Sources */,
 				3057CEA81FAD664700528448 /* DataPriceSave.m in Sources */,
+				3076ACC7200D16910023C663 /* CompareList.m in Sources */,
+				3076ACBE200CFEBB0023C663 /* Product.m in Sources */,
 				30A80A9B1F9ADC69009202A2 /* AppDelegate.m in Sources */,
+				3076ACCE200DB5B10023C663 /* CompareListCell.m in Sources */,
 				30A80ABA1F9AE058009202A2 /* CartItem.m in Sources */,
+				3076ACCB200DA94D0023C663 /* CompareListController.m in Sources */,
+				3076ACC4200D11090023C663 /* CompareItemList.m in Sources */,
 				30A80ABD1F9AE3B0009202A2 /* ToBuyList.m in Sources */,
 				30DFBC3D1FA75A7D004DE917 /* CustomFooterForCartList.m in Sources */,
 				30A80A981F9ADC69009202A2 /* main.m in Sources */,
+				3076ACD3200DD0C60023C663 /* CustomHeaderForCompareList.m in Sources */,
 				3036D9301F9E3BD5007F3FCC /* CartListTableViewController.m in Sources */,
 				30D2CDDC1FB95F60006C0201 /* StatisticTableTableViewController.m in Sources */,
 				30A80AB31F9ADCE0009202A2 /* MainTableViewController.m in Sources */,
@@ -351,6 +400,7 @@
 				3036D9351F9EED13007F3FCC /* CustomCellForCartList.m in Sources */,
 				3057CEB61FAD828600528448 /* CustomCVCellForStatistics.m in Sources */,
 				30D2CDE01FB9606A006C0201 /* CustomCellForStatistics.m in Sources */,
+				3076ACC1200D05720023C663 /* CompareItem.m in Sources */,
 				3036D9291F9E28B5007F3FCC /* CustomHeaderForToBuyList.m in Sources */,
 				3057CEAB1FAD6A1700528448 /* DataPriceSaveArray.m in Sources */,
 			);
@@ -359,20 +409,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		30116A8D1FC80B8300AA4FF2 /* TestMain.storyboard */ = {
+		30116A8D1FC80B8300AA4FF2 /* MainStory.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				30116A8E1FC80B8300AA4FF2 /* Base */,
 			);
-			name = TestMain.storyboard;
-			sourceTree = "<group>";
-		};
-		30A80A9F1F9ADC69009202A2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30A80AA01F9ADC69009202A2 /* Base */,
-			);
-			name = Main.storyboard;
+			name = MainStory.storyboard;
 			sourceTree = "<group>";
 		};
 		30A80AA41F9ADC69009202A2 /* LaunchScreen.storyboard */ = {

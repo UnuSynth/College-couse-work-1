@@ -4,6 +4,16 @@
 
 @implementation ToBuyItem
 
+//-(void)setName:(NSString *)name
+//{
+//    self.name=name;
+//}
+
+//-(void)setDate:(NSDate *)date
+//{
+//    self.date=date;
+//}
+
 @end
 
 @implementation ToBuyItem (NSCodingSupport)

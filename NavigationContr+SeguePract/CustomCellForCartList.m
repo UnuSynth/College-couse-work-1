@@ -24,9 +24,9 @@
     self->_cartItem=item;
     
     self.nameLabel.text=[NSString stringWithFormat:@"%@", self->_cartItem.name];
-    self.priceLabel.text=[NSString stringWithFormat:@"Price: %@$", [self->_cartItem priceInStringValue]];
-    self.countLabel.text=[NSString stringWithFormat:@"Count: %@", [self->_cartItem countInStringValue]];
-    self.totalLabel.text=[NSString stringWithFormat:@"Total: %@$", [self->_cartItem returnTotalInStringValue]];
+    self.priceLabel.text=[NSString stringWithFormat:@"Цена: %@ с", [self->_cartItem priceInStringValue]];
+    self.countLabel.text=[NSString stringWithFormat:@"Кол-во: %@", [self->_cartItem countInStringValue]];
+    self.totalLabel.text=[NSString stringWithFormat:@"Стоимость: %@ с", [self->_cartItem returnTotalInStringValue]];
 }
 
 @end

@@ -21,18 +21,42 @@ static NSString* const kSegueReuseID=@"show-session-id";
 
 @property(nonatomic)NSUInteger indexPathRow;
 
+@property(nonatomic, strong)NSArray<UITableViewRowAction*>* rowActions;
+
 @end
 
 @implementation StatisticTableTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-    self.dataArray=[[DataPriceSaveArray alloc]init];
+    UITableViewRowAction* deleteAction=
+    [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
+                                       title:@"❌"
+                                     handler:^(UITableViewRowAction* action, NSIndexPath* indexPath)
+                                            {
+                                                [self.dataArray removeSaveItemAtIndex:indexPath.row];
+                                                                            
+                                                [self.tableView deleteRowsAtIndexPaths:@[indexPath]
+                                                                      withRowAnimation:UITableViewRowAnimationLeft];
+                                            }];
+    
+    self.rowActions=@[deleteAction];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+    
+    self.dataArray=[[DataPriceSaveArray alloc]init];
 }
 
 #pragma mark - Table view data source
@@ -51,15 +75,13 @@ static NSString* const kSegueReuseID=@"show-session-id";
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CustomCellForStatistics *cell = [self.tableView dequeueReusableCellWithIdentifier:cellReuseID
+    CustomCellForStatistics* cell = [self.tableView dequeueReusableCellWithIdentifier:cellReuseID
                                                                          forIndexPath:indexPath];
     
     if(cell)
     {
         [cell setDataIntoCell:self.dataArray.dataPriceObjectsArray[indexPath.row]
-         andIndexPath:indexPath];
-        
-        
+                 andIndexPath:indexPath];
     }
     
     return cell;
@@ -72,13 +94,18 @@ static NSString* const kSegueReuseID=@"show-session-id";
 {
     [self.tableView deselectRowAtIndexPath:indexPath
                                   animated:YES];
-    
-    CustomCellForStatistics* tempCell=(CustomCellForStatistics*)[self.tableView cellForRowAtIndexPath:indexPath];
-    
     self.indexPathRow=indexPath.row;
     
+    //NSString* titleText=[NSString stringWithFormat:@"Статистика за %@", self.dataArray.dataPriceObjectsArray[indexPath.row].date];
+    
     [self performSegueWithIdentifier:kSegueReuseID
-                              sender:tempCell];
+                              sender:nil];
+}
+
+-(NSArray<UITableViewRowAction*>*)tableView:(UITableView*)tableView
+               editActionsForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    return self.rowActions;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue*)segue
@@ -94,6 +121,10 @@ static NSString* const kSegueReuseID=@"show-session-id";
         [detailedStatisticsController customMethodSetClonedSessionArray:[self.dataArray returnSessionArray]];
 
         detailedStatisticsController.index=self.indexPathRow;
+        
+        //NSString* titleText=sender;
+        
+        //detailedStatisticsController.navigationItem.title=titleText;
     }
 }
 

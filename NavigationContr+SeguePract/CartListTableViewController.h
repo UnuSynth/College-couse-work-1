@@ -11,13 +11,7 @@
 
 @class CartListTableViewController;
 
-@protocol CartListTableViewControllerDelegate <NSObject>
-
-@end
-
 @interface CartListTableViewController : UITableViewController
-
-@property (nonatomic, weak) id<CartListTableViewControllerDelegate>delegate;
 
 -(void)setList:(ToBuyList*)list;
 

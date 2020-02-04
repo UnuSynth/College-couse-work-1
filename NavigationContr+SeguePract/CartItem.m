@@ -4,11 +4,6 @@
 
 @implementation CartItem
 
--(NSString*)priceInStringValue
-{
-    NSString* str=[NSString stringWithFormat:@"%.2f", self.price];
-    return str;
-}
 
 -(NSString*)countInStringValue
 {
@@ -28,11 +23,6 @@
     float temp=self.count*self.price;
     
     return temp;
-}
-
--(void)setPriceFromStringValue: (NSString*) strPrice
-{
-    self.price=[strPrice floatValue];
 }
 
 -(void)setCountFromStringValue: (NSString*) strCount

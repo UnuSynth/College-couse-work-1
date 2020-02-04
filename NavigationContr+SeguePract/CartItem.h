@@ -1,17 +1,14 @@
 #import <Foundation/Foundation.h>
 #import "ToBuyItem.h"
+#import "Product.h"
 
-@interface CartItem : NSObject
+@interface CartItem : Product
 
-@property(nonatomic, strong) NSString* name;
-@property(nonatomic) float price;
 @property(nonatomic) int count;
 
--(NSString*)priceInStringValue;
 -(NSString*)countInStringValue;
 -(NSString*)returnTotalInStringValue;
 -(float)returnTotalInFloatValue;
--(void)setPriceFromStringValue: (NSString*) strPrice;
 -(void)setCountFromStringValue: (NSString*) strCount;
 
 @end

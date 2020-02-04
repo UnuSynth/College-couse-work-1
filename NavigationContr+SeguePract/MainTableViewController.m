@@ -49,11 +49,6 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
     
     self.productList=[[ToBuyList alloc]init];
     
-    if(self.productList.toBuyItemList.count==0)
-    {
-        [self.productList initArray];
-    }
-    
     UITableViewRowAction* delete=
     [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
                                        title:@"❌"
@@ -96,30 +91,30 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark Button Methods
+#pragma mark - Button Methods
 
 -(void)buyProduct:(NSIndexPath*)indexPath
 {
     CartItem* item=[CartItem new];
     
     UIAlertController* askForProductData=
-    [UIAlertController alertControllerWithTitle:@"ToBuyList"
-                                        message:[NSString stringWithFormat:@"Set %@'s price and count"
-     , self.productList.toBuyItemList[indexPath.row].name]
+    [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"%@"
+                                                 , self.productList.toBuyItemList[indexPath.row].name]
+                                        message:@"Укажите цену и количество"
                                  preferredStyle:UIAlertControllerStyleAlert];
     
     [askForProductData addTextFieldWithConfigurationHandler:^(UITextField* textField)
     {
-        textField.placeholder=@"price";
+        textField.placeholder=@"цена";
     }];
     
     [askForProductData addTextFieldWithConfigurationHandler:^(UITextField* textField)
      {
-        textField.placeholder=@"count";
+        textField.placeholder=@"количество";
      }];
     
     UIAlertAction* addCartItemButton=
-    [UIAlertAction actionWithTitle:@"Add"
+    [UIAlertAction actionWithTitle:@"Добавить"
                              style:UIAlertActionStyleDefault
                            handler:^(UIAlertAction* action)
                            {
@@ -128,8 +123,9 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
                                {
                                    UIAlertController* errorNotificationAlert=
                                    [UIAlertController
-                                    alertControllerWithTitle:@"ToBuyList"
-                                    message:@"You must write price and count"
+                                    alertControllerWithTitle:[NSString stringWithFormat:@"%@"
+                                                              , self.productList.toBuyItemList[indexPath.row].name]
+                                    message:@"Укажите цену и количество!"
                                     preferredStyle:UIAlertControllerStyleAlert];
                                    
                                    UIAlertAction* okImSorryAction=
@@ -145,7 +141,7 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
                                }
                                else
                                {
-                                   item.name=self.productList.toBuyItemList[indexPath.row].name;
+                                   [item setName:self.productList.toBuyItemList[indexPath.row].name];
                                    [item setPriceFromStringValue: [[askForProductData textFields][0] text]];
                                    [item setCountFromStringValue: [[askForProductData textFields][1] text]];
                                    [self.productList addCartItem:item];
@@ -154,7 +150,7 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
                                }
                            }];
     
-    UIAlertAction* cancelAction=[UIAlertAction actionWithTitle:@"Cancel"
+    UIAlertAction* cancelAction=[UIAlertAction actionWithTitle:@"Отмена"
                                                          style:UIAlertActionStyleCancel
                                                        handler:nil];
     
@@ -186,15 +182,15 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
 -(IBAction) addButtonTap:(id)sender
 {
     UIAlertController* askForProductName=
-    [UIAlertController alertControllerWithTitle:@"ToBuy List"
-                                        message:@"Adding product"
+    [UIAlertController alertControllerWithTitle:@"Добавление товара"
+                                        message:@"Укажите наименование:"
                                  preferredStyle:UIAlertControllerStyleAlert];
     [askForProductName addTextFieldWithConfigurationHandler:^(UITextField* textField)
      {
-         textField.placeholder=@"product name";
+         textField.placeholder=@"наименование";
      }];
     UIAlertAction* addItemAction=
-    [UIAlertAction actionWithTitle:@"Add"
+    [UIAlertAction actionWithTitle:@"Добавить"
                              style:UIAlertActionStyleDefault
                            handler:^(UIAlertAction* action)
      {
@@ -202,8 +198,8 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
          
          ToBuyItem* item=[[ToBuyItem alloc]init];
          
-         item.name=[[askForProductName textFields][0] text];
-         item.date=currentDate;
+         [item setName:[[askForProductName textFields][0] text]];
+         [item setDate:currentDate];
          
          [self.productList addToBuyItem:item];
          [self.productList saveData];
@@ -212,7 +208,7 @@ static NSString* const showCartListSegueID=@"cart-list-segue-identifier";
      }];
     
     UIAlertAction* cancelAction=
-    [UIAlertAction actionWithTitle:@"Cancel"
+    [UIAlertAction actionWithTitle:@"Отменить"
                              style:UIAlertActionStyleCancel
                            handler:nil];
     

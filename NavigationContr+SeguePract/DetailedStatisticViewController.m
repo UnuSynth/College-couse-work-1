@@ -22,14 +22,6 @@ static NSString* const kCellReuseID=@"detailed-statistics-cell-reuse-id";
 
 @synthesize clonedSessionArray=_clonedSessionArray;
 
-/*-(instancetype)init
-{
-    self->_clonedSessionArray=[[NSMutableArray alloc]init];
-    self.clonedSessionArray=[[NSArray alloc]init];
-    
-    return self;
-}*/
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -50,7 +42,6 @@ static NSString* const kCellReuseID=@"detailed-statistics-cell-reuse-id";
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"%lu", (unsigned long)self.clonedSessionArray[self.index].count);
     return self.clonedSessionArray[self.index].count;
 }
 
@@ -69,13 +60,6 @@ static NSString* const kCellReuseID=@"detailed-statistics-cell-reuse-id";
 }
 
 #pragma mark - My Methods
-
-/*-(void)setClonedSessionArray:(NSArray<NSArray<CartItem*>*>*)clonedSessionArray
-{
-    self->_clonedSessionArray=[[NSMutableArray alloc]init];
-    
-    [self->_clonedSessionArray setArray:clonedSessionArray];
-}*/
 
 -(void)customMethodSetClonedSessionArray:(NSArray<NSArray<CartItem*>*>*)clonedArray
 {

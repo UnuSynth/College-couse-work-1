@@ -13,6 +13,7 @@
 
 @property(nonatomic)NSUInteger index;
 @property(nonatomic, strong)NSArray<NSArray<CartItem*>*>* clonedSessionArray;
+//@property(nonatomic, strong)IBOutlet UINavigationItem* titleText;
 
 //-(void)setClonedSessionArray:(NSArray<NSArray<CartItem*>*>*)clonedSessionArray;
 

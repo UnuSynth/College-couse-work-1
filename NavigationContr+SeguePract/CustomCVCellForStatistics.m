@@ -24,8 +24,8 @@
     
     [self.dateFormatter dateFromString:@"dd'.'MM'.'YY'@'HH':'mm"];
     
-    self.dateLabel.text=[NSString stringWithFormat:@"On %@",[self.dateFormatter stringFromDate:item.date]];
-    self.totalLabel.text=[NSString stringWithFormat:@"%.2f$ you spent", item.total];
+    self.dateLabel.text=[NSString stringWithFormat:@"%@",[self.dateFormatter stringFromDate:item.date]];
+    self.totalLabel.text=[NSString stringWithFormat:@"Израсходовано %.2f с", item.total];
 }
 
 @end
